@@ -26,7 +26,7 @@ public class TestBase {
 
         Configuration.baseUrl = config.getBaseUrl();
         RestAssured.baseURI = config.getBaseUri();
-//        Configuration.remote = config.getRemoteUrl();
+        Configuration.remote = config.getRemoteUrl();
 
         Configuration.browser = config.getBrowser();
         Configuration.browserSize = config.getBrowserSize();

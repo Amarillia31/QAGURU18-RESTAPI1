@@ -1,18 +1,17 @@
 package tests;
 
-import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
-import com.codeborne.selenide.logevents.SelenideLogger;
 import config.ProjectConfig;
 import io.qameta.allure.restassured.AllureRestAssured;
-import io.qameta.allure.selenide.AllureSelenide;
-import io.restassured.RestAssured;
 import org.aeonbits.owner.ConfigFactory;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Cookie;
 
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
 import static helpers.CustomApiListener.withCustomTemplates;
 import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
@@ -21,27 +20,12 @@ import static io.restassured.RestAssured.given;
 @Tag("demowebshop")
 public class DemowebshopTests extends TestBase {
     ProjectConfig config = ConfigFactory.create(ProjectConfig.class,System.getProperties());
-//    static String login = "qaguru@qa.guru",
-//            password = "qaguru@qa.guru1",
-//            authCookieName = "NOPCOMMERCE.AUTH";
 
     String login = config.login();
     String password = config.password();
     String authCookieName = config.authCookie();
 
 
-//    @BeforeAll
-//    static void configure() {
-//        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-//
-//        Configuration.baseUrl = "http://demowebshop.tricentis.com";
-//        RestAssured.baseURI = "http://demowebshop.tricentis.com";
-//    }
-//
-//    @AfterEach
-//    void afterEach() {
-//        closeWebDriver();
-//    }
 
     @Test
     @DisplayName("Successful authorization to some demowebshop (UI)")
